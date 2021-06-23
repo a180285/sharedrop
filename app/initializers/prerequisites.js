@@ -36,8 +36,22 @@ export function initialize(application) {
   function authenticateToFirebase() {
     return new Promise((resolve, reject) => {
       const xhr = $.getJSON('/auth');
+      console.log('get /auth data');
+
       xhr.then((data) => {
-        const ref = new window.Firebase(config.FIREBASE_URL);
+        console.log('start new Firebase');
+
+        console.log('config.FIREBASE_URL : ', config.FIREBASE_URL);
+        var ref;
+        try {
+          ref = new window.Firebase(config.FIREBASE_URL);
+        } catch (e) {
+          console.error('new Firebase Error : ', e);
+        }
+
+        console.log('Done new Firebase');
+
+
         // eslint-disable-next-line no-param-reassign
         application.ref = ref;
         // eslint-disable-next-line no-param-reassign
@@ -45,10 +59,15 @@ export function initialize(application) {
         // eslint-disable-next-line no-param-reassign
         application.publicIp = data.public_ip;
 
+        console.log('start authWithCustomToken with Firebase: OK');
+
         ref.authWithCustomToken(data.token, (error) => {
           if (error) {
+            console.error('Error with Firebase: ', error);
             reject(error);
           } else {
+            console.log('authWithCustomToken with Firebase: OK');
+
             resolve();
           }
         });

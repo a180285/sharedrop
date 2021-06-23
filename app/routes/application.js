@@ -14,6 +14,8 @@ export default Route.extend({
     },
 
     closeModal() {
+      var myDisplayName = document.getElementById('my-display-name').value;
+      window.localStorage.setItem('myDisplayName', myDisplayName);
       return this.disconnectOutlet({
         outlet: 'modal',
         parentView: 'application',

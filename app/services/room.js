@@ -26,6 +26,7 @@ Room.prototype.join = function (user) {
       self._userRef.onDisconnect().remove();
 
       // Join the room
+      console.log('Join the room, user: ', user);
       self._userRef.set(user, (error) => {
         if (error) {
           console.warn('Firebase: Adding user to the room failed: ', error);

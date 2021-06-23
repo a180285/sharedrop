@@ -3,6 +3,9 @@
 # compiled output
 /dist/
 /tmp/
+/public/
+/.idea/
+package-lock.json
 
 # dependencies
 /bower_components/

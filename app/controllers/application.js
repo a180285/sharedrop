@@ -13,13 +13,16 @@ export default Controller.extend({
     const id = window.Sharedrop.userId;
     const ip = window.Sharedrop.publicIp;
     const avatar = this.avatarService.get();
+
+    const myDisplayName = window.localStorage.getItem('myDisplayName');
+
     const you = User.create({
       uuid: id,
       public_ip: ip,
       avatarUrl: avatar.url,
-      label: avatar.label,
+      label: myDisplayName || avatar.label,
     });
-
+    console.log(`you : ${avatar.label}`);
     you.set('peer.id', id);
     this.set('you', you);
   },
