@@ -21,6 +21,7 @@ module.exports = function (environment) {
     },
 
     FIREBASE_URL: process.env.FIREBASE_URL,
+    BASE_URL: process.env.BASE_URL,
 
     exportApplicationGlobal: true,
   };

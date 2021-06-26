@@ -1,5 +1,6 @@
 import Route from '@ember/routing/route';
 import $ from 'jquery';
+import config from 'sharedrop/config/environment';
 
 import Room from '../services/room';
 
@@ -14,7 +15,7 @@ export default Route.extend({
 
   model() {
     // Get room name from the server
-    return $.getJSON('/room').then((data) => data.name);
+    return $.getJSON(config.BASE_URL + '/room').then((data) => data.name);
   },
 
   setupController(ctrl, model) {

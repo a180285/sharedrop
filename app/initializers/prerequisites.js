@@ -35,7 +35,7 @@ export function initialize(application) {
 
   function authenticateToFirebase() {
     return new Promise((resolve, reject) => {
-      const xhr = $.getJSON('/auth');
+      const xhr = $.getJSON(config.BASE_URL + '/auth');
       console.log('get /auth data');
 
       xhr.then((data) => {
