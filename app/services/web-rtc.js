@@ -7,7 +7,7 @@ import File from './file';
 
 const WebRTC = function (id, options) {
   const defaults = {
-    config: { iceServers: [{ urls: 'stun:stun.l.google.com:19302' }] },
+    config: { iceServers: [{ urls: 'stun:sh.huangwei.cx:20020' }] },
     debug: 3,
   };
 

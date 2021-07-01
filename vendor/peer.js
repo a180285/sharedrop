@@ -167,7 +167,7 @@ exports.RTCIceCandidate = window.RTCIceCandidate || window.mozRTCIceCandidate;
 
 var defaultConfig = {
     'iceServers': [{
-        'urls': 'stun:stun.l.google.com:19302',
+        'urls': 'stun:sh.huangwei.cx:20020',
     }]
 };
 
